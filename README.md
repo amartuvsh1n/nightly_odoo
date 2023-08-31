@@ -12,13 +12,14 @@ cd 16
 Replace your odoo version in ODOO_VERSION, ODOO_RELEASE.
 If did not found odoo.deb SHA, just remove it. 
 
-```
+```diff
 vim Dockerfile
-  #0969DA ENV ODOO_VERSION 16.0
-  #0969DA ARG ODOO_RELEASE=20230825
-  #0969DA ARG ODOO_SHA=12ce0c5d56051d71ec3d9d474b3f4694fdcae45a 
-  # if not found
-  #0969DA && echo "${ODOO_SHA} odoo.deb" | sha1sum -c - \
+ENV ODOO_VERSION 16.0
+ARG ODOO_RELEASE=20230825
+ARG ODOO_SHA=12ce0c5d56051d71ec3d9d474b3f4694fdcae45a 
+# if not found
+&& echo "${ODOO_SHA} odoo.deb" | sha1sum -c - \ 
+
 ```
 
 ## Create container image
